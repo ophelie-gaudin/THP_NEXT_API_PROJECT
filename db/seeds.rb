@@ -17,6 +17,7 @@ User.create(email:"b@b.fr", password:"123456")
 	article = Article.create(
     title: Faker::Books::Lovecraft.location,
     content: Faker::Books::Lovecraft.paragraph,
+    price: Faker::Number.binary(digits: 3),
 		user: User.first
   )
   puts "Création de l'article n°#{x} "
@@ -26,6 +27,7 @@ end
 	article = Article.create(
     title: Faker::Books::Lovecraft.location,
     content: Faker::Books::Lovecraft.paragraph,
+    price: Faker::Number.binary(digits: 3),
 		user: User.last
   )
   puts "Création de l'article n°#{x} "
