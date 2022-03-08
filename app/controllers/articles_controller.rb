@@ -16,7 +16,7 @@ class ArticlesController < ApplicationController
 
   # POST /articles
   def create
-    @article = Article.new(title: article_params[:title], content: article_params[:content], user: current_user)
+    @article = Article.new(title: article_params[:title], content: article_params[:content], price: article_params[:price], user: current_user)
 
     if @article.save
       render json: @article, status: :created, location: @article
@@ -57,7 +57,7 @@ class ArticlesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def article_params
-    params.require(:article).permit(:title, :content, :user)
+    params.require(:article).permit(:title, :content, :price, :user)
   end
 
   def owner_user
