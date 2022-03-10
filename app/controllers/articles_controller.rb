@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: %i[ show update destroy ]
+  before_action :set_article, only: %i[ update destroy ]
   before_action :authenticate_user!, only: %i[ create update destroy edit new ]
 
   # GET /articles
@@ -11,6 +11,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1
   def show
+    @article = Article.where(id: params[:id]).joins(:user).select("articles.*, users.email as userEmail").sole
     render json: @article
   end
 
