@@ -54,3 +54,5 @@ gem "rack-cors", "~> 1.1"
 gem "dotenv-rails", "~> 2.7"
 
 gem "faker", "~> 2.20"
+
+gem "mailjet", "~> 1.6"
